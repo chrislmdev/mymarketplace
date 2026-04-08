@@ -475,6 +475,11 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 0.95rem;
+    /* Tier columns hug IL grid; domain column takes the rest */
+    --dash-tier-col-max: calc(2 * 2.85rem + 0.28rem + 2 * 0.88rem);
+  }
+  .dash-table.dash-table-il-cols-3 {
+    --dash-tier-col-max: calc(3 * 2.42rem + 2 * 0.25rem + 2 * 0.88rem);
   }
   .dash-table th,
   .dash-table td {
@@ -494,7 +499,15 @@
   }
   .dash-th-domain {
     min-width: 155px;
-    width: 18%;
+    width: auto;
+  }
+  .dash-th-tier,
+  .dash-table tbody td {
+    width: 0.01%;
+    max-width: var(--dash-tier-col-max);
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
   }
   .dash-th-tier {
     text-align: center !important;
@@ -502,6 +515,7 @@
   .dash-tier-btn {
     display: block;
     width: 100%;
+    max-width: 100%;
     background: transparent;
     border: none;
     color: var(--white);
@@ -532,6 +546,9 @@
     text-transform: none;
     letter-spacing: 0;
     margin-top: 0.28rem;
+    white-space: normal;
+    line-height: 1.35;
+    hyphens: auto;
   }
   .dash-row-label {
     text-align: left;
@@ -1054,7 +1071,8 @@ function renderDashboard() {
     tbody += '</tr>';
   });
   tbody += '</tbody>';
-  mount.innerHTML = `<table class="dash-table">${thead}${tbody}</table>`;
+  const tableIlClass = IMPACT_LEVELS.length > 4 ? ' dash-table-il-cols-3' : '';
+  mount.innerHTML = `<table class="dash-table${tableIlClass}">${thead}${tbody}</table>`;
   mount.querySelectorAll('.dash-tier-btn').forEach(btn => {
     btn.addEventListener('click', () => drillFromDashboard({ tier: parseInt(btn.dataset.dashTier, 10) }));
   });

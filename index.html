@@ -420,19 +420,50 @@
 
   /* ── DASHBOARD ── */
   .dashboard-hero { padding: 2.5rem 2rem 2rem; }
-  .dashboard-hero h1 { max-width: 800px; }
+  .dashboard-hero h1 {
+    max-width: 800px;
+    font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  }
   .dashboard-wrap {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem 3rem;
+    font-size: 1.02rem;
   }
   .dashboard-intro {
     color: var(--slate);
-    font-size: 0.9rem;
+    font-size: 1.02rem;
     font-weight: 300;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
     max-width: 720px;
+  }
+  .dashboard-interactive-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.92rem;
+    color: var(--slate);
+    line-height: 1.55;
+    margin-bottom: 1.35rem;
+    max-width: 680px;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    background: rgba(14,165,233,0.04);
+    border: 1px solid rgba(14,165,233,0.1);
+  }
+  .dashboard-interactive-hint strong {
+    color: var(--slate-light);
+    font-weight: 600;
+  }
+  .dashboard-interactive-icon {
+    flex-shrink: 0;
+    width: 1.1rem;
+    text-align: center;
+    color: rgba(14,165,233,0.55);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0.06rem;
   }
   .dash-table-wrap {
     overflow-x: auto;
@@ -443,12 +474,12 @@
   .dash-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.82rem;
+    font-size: 0.95rem;
   }
   .dash-table th,
   .dash-table td {
     border: 1px solid rgba(14,165,233,0.1);
-    padding: 0.65rem 0.75rem;
+    padding: 0.78rem 0.88rem;
     vertical-align: top;
   }
   .dash-table thead th {
@@ -457,12 +488,12 @@
     text-align: left;
     background: rgba(10,22,40,0.6);
     color: var(--slate-light);
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
   .dash-th-domain {
-    min-width: 140px;
+    min-width: 155px;
     width: 18%;
   }
   .dash-th-tier {
@@ -476,22 +507,31 @@
     color: var(--white);
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.98rem;
     cursor: pointer;
     padding: 0.35rem 0;
     text-align: center;
     transition: color 0.2s;
   }
   .dash-tier-btn:hover { color: var(--sky); }
+  .dash-tier-title {
+    text-decoration: underline dotted rgba(148,163,184,0.35);
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.2s;
+  }
+  .dash-tier-btn:hover .dash-tier-title {
+    text-decoration-color: rgba(14,165,233,0.65);
+  }
   .dash-tier-sub {
     display: block;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
-    font-size: 0.68rem;
+    font-size: 0.78rem;
     color: var(--slate);
     text-transform: none;
     letter-spacing: 0;
-    margin-top: 0.25rem;
+    margin-top: 0.28rem;
   }
   .dash-row-label {
     text-align: left;
@@ -503,48 +543,73 @@
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    font-size: 0.84rem;
+    font-size: 0.95rem;
     cursor: pointer;
     text-align: left;
     padding: 0;
-    transition: color 0.2s;
+    transition: color 0.2s, text-decoration-color 0.2s;
+    text-decoration: underline dotted rgba(148,163,184,0.35);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
   }
-  .dash-domain-btn:hover { color: var(--sky); }
+  .dash-domain-btn:hover {
+    color: var(--sky);
+    text-decoration-color: rgba(14,165,233,0.65);
+  }
   .dash-cell {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
+    flex-direction: column;
+    gap: 0.38rem;
+    align-items: stretch;
     justify-content: center;
-    align-items: center;
-    min-height: 2.5rem;
+    min-width: 6.75rem;
+    padding: 0.15rem 0;
   }
   .dash-il-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.3rem;
-    border-radius: 100px;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    border-radius: 8px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.68rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 0.25rem 0.5rem;
+    padding: 0.4rem 0.65rem;
     cursor: pointer;
-    border: 1px solid transparent;
-    transition: transform 0.15s, border-color 0.15s, opacity 0.15s;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.15s, border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+    text-align: left;
   }
   .dash-il-btn:not(:disabled):hover {
     transform: translateY(-1px);
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(14,165,233,0.45);
+    box-shadow: 0 0 0 1px rgba(14,165,233,0.15);
   }
   .dash-il-btn:disabled {
     opacity: 0.28;
     cursor: default;
+    border-color: transparent;
+    box-shadow: none;
+    justify-content: space-between;
+  }
+  .dash-il-label {
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
   }
   .dash-il-btn .dash-il-count {
     font-weight: 800;
     font-family: 'Syne', sans-serif;
-    font-size: 0.75rem;
-    min-width: 1.1rem;
-    text-align: center;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+    min-width: 1.35rem;
+    text-align: right;
+    line-height: 1;
+    opacity: 0.95;
+  }
+  .dash-il-btn:disabled .dash-il-count {
+    opacity: 0.7;
   }
 
   @media(max-width:900px) {
@@ -718,7 +783,11 @@
     <div class="hero-inner">
       <div class="hero-badge">Portfolio view</div>
       <h1>Services by <em>domain</em>, <em>tier</em> &amp; <em>impact</em></h1>
-      <p class="dashboard-intro">Tier 1 groups major hyperscaler CSPs and core platforms; Tier 2 established SaaS; Tier 3 emerging vendors. Click any tier, domain, or impact count to open the marketplace with that filter applied. Impact levels shown: IL2, IL4, IL5, IL6.</p>
+      <p class="dashboard-intro">Tier 1 groups major hyperscaler CSPs and core platforms; Tier 2 established SaaS; Tier 3 emerging vendors. Impact levels shown: IL2, IL4, IL5, IL6.</p>
+      <p class="dashboard-interactive-hint" role="note">
+        <span class="dashboard-interactive-icon" aria-hidden="true">↗</span>
+        <span><strong>Interactive grid</strong> — tier headings, domain names, and each non-zero impact total are links into the marketplace (with filters applied). Dimmed counts have no services in that slice.</span>
+      </p>
     </div>
   </section>
   <div class="dashboard-wrap">
@@ -948,7 +1017,7 @@ function renderDashboard() {
   let thead = `<thead><tr><th class="dash-th-domain">Domain</th>`;
   tierCols.forEach(t => {
     const L = TIER_LABELS[t];
-    thead += `<th class="dash-th-tier"><button type="button" class="dash-tier-btn" data-dash-tier="${t}">${L.title}<span class="dash-tier-sub">${L.sub}</span></button></th>`;
+    thead += `<th class="dash-th-tier"><button type="button" class="dash-tier-btn" data-dash-tier="${t}"><span class="dash-tier-title">${L.title}</span><span class="dash-tier-sub">${L.sub}</span></button></th>`;
   });
   thead += '</tr></thead>';
   let tbody = '<tbody>';
@@ -959,7 +1028,7 @@ function renderDashboard() {
       IMPACT_LEVELS.forEach(il => {
         const n = countCell(d, t, il);
         const dis = n === 0;
-        tbody += `<button type="button" class="dash-il-btn ${getImpactClass(il)}" data-dash-domain="${d.replace(/"/g, '&quot;')}" data-dash-tier="${t}" data-dash-il="${il}" ${dis ? 'disabled' : ''}>${il}<span class="dash-il-count">${n}</span></button>`;
+        tbody += `<button type="button" class="dash-il-btn ${getImpactClass(il)}" data-dash-domain="${d.replace(/"/g, '&quot;')}" data-dash-tier="${t}" data-dash-il="${il}" ${dis ? 'disabled' : ''}><span class="dash-il-label">${il}</span><span class="dash-il-count">${n}</span></button>`;
       });
       tbody += '</div></td>';
     });

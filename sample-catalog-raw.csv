@@ -1,0 +1,6 @@
+id,name,vendor,emoji,status,csp,tier,domain,impactLevel,category,tags,description,contractId,ataDate,reuses
+1,Wiz Cloud Security,"Wiz, Inc.",🛡️,authorized,aws,2,Cybersecurity,IL5,Cybersecurity & Risk Management,CSPM|Vulnerability|Cloud Security,"Agentless cloud security platform that provides full-stack visibility across AWS, Azure, and GCP.",CBM-2024-0012,2024-03-15,4
+2,Microsoft 365 GovCloud,Microsoft Corporation,🏢,authorized,azure,1,Collaboration,IL6,Collaboration,Email|Productivity|Collaboration,"Complete productivity and collaboration suite including Teams, Exchange, SharePoint, and Office apps.",CBM-2023-0045,2023-01-20,12
+3,Salesforce Government Cloud,"Salesforce, Inc.",☁️,authorized,aws,2,SaaS,IL5,CRM,CRM|Sales|Customer Service,"Enterprise CRM and low-code platform purpose-built for government agencies.",CBM-2024-0031,2024-05-01,7
+24,AWS GovCloud IaaS,Amazon Web Services,🟠,authorized,aws,1,IaaS,IL6,IaaS,Compute|Storage|Networking|IaaS,"Isolated AWS region for sensitive CUI and regulated workloads.",CBM-2021-0001,2021-08-01,22
+21,Twilio Flex Gov,Twilio Inc.,📞,ready,aws,3,Communication,IL2,Communication,Contact Center|CPaaS|Messaging,"Programmable cloud contact center platform.",CBM-2025-0002,Pending,0

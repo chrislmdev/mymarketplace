@@ -556,31 +556,42 @@
     color: var(--sky);
     text-decoration-color: rgba(14,165,233,0.65);
   }
+  /* IL chips: 2×2 when ≤4 levels; 3 columns (up to 3×3) when more */
   .dash-cell {
-    display: flex;
-    flex-direction: column;
-    gap: 0.38rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem 0.45rem;
     align-items: stretch;
-    justify-content: center;
-    min-width: 6.75rem;
-    padding: 0.15rem 0;
+    justify-items: stretch;
+    min-width: 7.25rem;
+    padding: 0.2rem 0;
+  }
+  .dash-cell.dash-cell-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-width: 10.5rem;
+    gap: 0.35rem 0.4rem;
   }
   .dash-il-btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: 0.35rem;
     width: 100%;
+    min-width: 0;
     border-radius: 8px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    padding: 0.4rem 0.65rem;
+    padding: 0.32rem 0.5rem;
     cursor: pointer;
     border: 1px solid rgba(255,255,255,0.08);
     transition: transform 0.15s, border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
     box-shadow: 0 1px 0 rgba(0,0,0,0.12);
     text-align: left;
+  }
+  .dash-cell.dash-cell-cols-3 .dash-il-btn {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.4rem;
   }
   .dash-il-btn:not(:disabled):hover {
     transform: translateY(-1px);
@@ -601,12 +612,16 @@
   .dash-il-btn .dash-il-count {
     font-weight: 800;
     font-family: 'Syne', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-variant-numeric: tabular-nums;
-    min-width: 1.35rem;
+    min-width: 1.1rem;
     text-align: right;
     line-height: 1;
     opacity: 0.95;
+  }
+  .dash-cell.dash-cell-cols-3 .dash-il-btn .dash-il-count {
+    font-size: 0.74rem;
+    min-width: 1rem;
   }
   .dash-il-btn:disabled .dash-il-count {
     opacity: 0.7;
@@ -786,7 +801,7 @@
       <p class="dashboard-intro">Tier 1 groups major hyperscaler CSPs and core platforms; Tier 2 established SaaS; Tier 3 emerging vendors. Impact levels shown: IL2, IL4, IL5, IL6.</p>
       <p class="dashboard-interactive-hint" role="note">
         <span class="dashboard-interactive-icon" aria-hidden="true">↗</span>
-        <span><strong>Interactive grid</strong> — tier headings, domain names, and each non-zero impact total are links into the marketplace (with filters applied). Dimmed counts have no services in that slice.</span>
+        <span><strong>Interactive grid</strong> — tier headings, domain names, and each non-zero impact total are links into the marketplace (with filters applied). Impact levels are shown in a 2×2 block per cell; if more than four levels are configured, they flow three per row. Dimmed counts have no services in that slice.</span>
       </p>
     </div>
   </section>
@@ -831,6 +846,7 @@
 </div>
 
 <script>
+/* Dashboard lays out IL chips in 2 columns (2×2 for four levels); >4 uses 3 columns (up to 3×3). */
 const IMPACT_LEVELS = ['IL2', 'IL4', 'IL5', 'IL6'];
 const TIER_LABELS = {
   1: { title: 'Tier 1', sub: 'Hyperscalers & core CSPs' },
@@ -1014,6 +1030,7 @@ function renderDashboard() {
   const domains = uniqueDomains();
   const mount = document.getElementById('dashboardTableMount');
   const tierCols = [1, 2, 3];
+  const ilGridClass = IMPACT_LEVELS.length > 4 ? ' dash-cell-cols-3' : '';
   let thead = `<thead><tr><th class="dash-th-domain">Domain</th>`;
   tierCols.forEach(t => {
     const L = TIER_LABELS[t];
@@ -1024,7 +1041,7 @@ function renderDashboard() {
   domains.forEach(d => {
     tbody += `<tr><th scope="row" class="dash-row-label"><button type="button" class="dash-domain-btn" data-dash-domain="${d.replace(/"/g, '&quot;')}">${d}</button></th>`;
     tierCols.forEach(t => {
-      tbody += '<td><div class="dash-cell">';
+      tbody += `<td><div class="dash-cell${ilGridClass}">`;
       IMPACT_LEVELS.forEach(il => {
         const n = countCell(d, t, il);
         const dis = n === 0;

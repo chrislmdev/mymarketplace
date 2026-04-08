@@ -304,6 +304,10 @@
   .impact-high { background: rgba(244,63,94,0.12); color: var(--rose); border: 1px solid rgba(244,63,94,0.2); }
   .impact-moderate { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
   .impact-low { background: rgba(16,217,160,0.1); color: var(--mint); border: 1px solid rgba(16,217,160,0.2); }
+  .impact-il2 { background: rgba(16,217,160,0.12); color: var(--mint); border: 1px solid rgba(16,217,160,0.28); }
+  .impact-il4 { background: rgba(14,165,233,0.12); color: var(--sky); border: 1px solid rgba(14,165,233,0.28); }
+  .impact-il5 { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.28); }
+  .impact-il6 { background: rgba(244,63,94,0.12); color: var(--rose); border: 1px solid rgba(244,63,94,0.25); }
   .btn-request {
     background: transparent; border: 1px solid rgba(14,165,233,0.3);
     color: var(--sky); padding: 0.35rem 0.8rem; border-radius: 6px;
@@ -379,6 +383,170 @@
   .empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
   .empty h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem; }
 
+  /* ── VIEWS ── */
+  .site-view { display: none; }
+  .site-view.is-active { display: block; }
+
+  /* ── DRILL BANNER ── */
+  .drill-banner {
+    background: rgba(14,165,233,0.08);
+    border-bottom: 1px solid rgba(14,165,233,0.15);
+    padding: 0.65rem 2rem;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .drill-banner.is-visible { display: flex; }
+  .drill-banner-text {
+    font-size: 0.85rem;
+    color: var(--slate-light);
+  }
+  .drill-banner-text strong { color: var(--white); font-weight: 600; }
+  .drill-banner-clear {
+    background: transparent;
+    border: 1px solid rgba(14,165,233,0.35);
+    color: var(--sky);
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .drill-banner-clear:hover { background: rgba(14,165,233,0.12); }
+
+  /* ── DASHBOARD ── */
+  .dashboard-hero { padding: 2.5rem 2rem 2rem; }
+  .dashboard-hero h1 { max-width: 800px; }
+  .dashboard-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+  }
+  .dashboard-intro {
+    color: var(--slate);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 720px;
+  }
+  .dash-table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(14,165,233,0.15);
+    border-radius: 12px;
+    background: var(--navy-mid);
+  }
+  .dash-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .dash-table th,
+  .dash-table td {
+    border: 1px solid rgba(14,165,233,0.1);
+    padding: 0.65rem 0.75rem;
+    vertical-align: top;
+  }
+  .dash-table thead th {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    text-align: left;
+    background: rgba(10,22,40,0.6);
+    color: var(--slate-light);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .dash-th-domain {
+    min-width: 140px;
+    width: 18%;
+  }
+  .dash-th-tier {
+    text-align: center !important;
+  }
+  .dash-tier-btn {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.35rem 0;
+    text-align: center;
+    transition: color 0.2s;
+  }
+  .dash-tier-btn:hover { color: var(--sky); }
+  .dash-tier-sub {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.68rem;
+    color: var(--slate);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 0.25rem;
+  }
+  .dash-row-label {
+    text-align: left;
+    background: rgba(10,22,40,0.45);
+  }
+  .dash-domain-btn {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.84rem;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    transition: color 0.2s;
+  }
+  .dash-domain-btn:hover { color: var(--sky); }
+  .dash-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 2.5rem;
+  }
+  .dash-il-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.15s, border-color 0.15s, opacity 0.15s;
+  }
+  .dash-il-btn:not(:disabled):hover {
+    transform: translateY(-1px);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .dash-il-btn:disabled {
+    opacity: 0.28;
+    cursor: default;
+  }
+  .dash-il-btn .dash-il-count {
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    min-width: 1.1rem;
+    text-align: center;
+  }
+
   @media(max-width:900px) {
     .sidebar { display: none; }
     nav { display: none; }
@@ -400,12 +568,13 @@
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a class="logo" href="#">
+    <a class="logo" href="#marketplace" id="logoLink">
       <div class="logo-icon">☁</div>
       Cloud<span>Bridge</span>
     </a>
     <nav>
-      <a href="#" class="active">Marketplace</a>
+      <a href="#marketplace" class="nav-route active" data-route="marketplace">Marketplace</a>
+      <a href="#dashboard" class="nav-route" data-route="dashboard">Portfolio dashboard</a>
       <a href="#">My Orders</a>
       <a href="#">Contract Info</a>
       <a href="#">Support</a>
@@ -413,6 +582,8 @@
     <button class="header-cta">Request Access</button>
   </div>
 </header>
+
+<div id="viewMarketplace" class="site-view is-active">
 
 <!-- HERO -->
 <section class="hero">
@@ -440,6 +611,11 @@
     </div>
   </div>
 </section>
+
+<div class="drill-banner" id="drillBanner">
+  <div class="drill-banner-text" id="drillBannerText"></div>
+  <button type="button" class="drill-banner-clear" id="drillBannerClear">Clear dashboard filters</button>
+</div>
 
 <!-- CONTROLS -->
 <div class="controls-bar">
@@ -505,17 +681,21 @@
     </div>
     <div class="sidebar-section">
       <div class="sidebar-title">Impact Level</div>
-      <div class="sidebar-item" data-filter="high">
-        <span class="sidebar-item-label">🔴 High</span>
-        <span class="sidebar-count" id="count-high">0</span>
+      <div class="sidebar-item" data-filter="IL2">
+        <span class="sidebar-item-label"><span class="impact-chip impact-il2" style="font-size:0.65rem;padding:0.1rem 0.4rem">IL2</span></span>
+        <span class="sidebar-count" id="count-IL2">0</span>
       </div>
-      <div class="sidebar-item" data-filter="moderate">
-        <span class="sidebar-item-label">🟡 Moderate</span>
-        <span class="sidebar-count" id="count-moderate">0</span>
+      <div class="sidebar-item" data-filter="IL4">
+        <span class="sidebar-item-label"><span class="impact-chip impact-il4" style="font-size:0.65rem;padding:0.1rem 0.4rem">IL4</span></span>
+        <span class="sidebar-count" id="count-IL4">0</span>
       </div>
-      <div class="sidebar-item" data-filter="low">
-        <span class="sidebar-item-label">🟢 Low</span>
-        <span class="sidebar-count" id="count-low">0</span>
+      <div class="sidebar-item" data-filter="IL5">
+        <span class="sidebar-item-label"><span class="impact-chip impact-il5" style="font-size:0.65rem;padding:0.1rem 0.4rem">IL5</span></span>
+        <span class="sidebar-count" id="count-IL5">0</span>
+      </div>
+      <div class="sidebar-item" data-filter="IL6">
+        <span class="sidebar-item-label"><span class="impact-chip impact-il6" style="font-size:0.65rem;padding:0.1rem 0.4rem">IL6</span></span>
+        <span class="sidebar-count" id="count-IL6">0</span>
       </div>
     </div>
   </aside>
@@ -529,6 +709,21 @@
       <p>Try adjusting your search or filters</p>
     </div>
   </main>
+</div>
+
+</div><!-- /viewMarketplace -->
+
+<div id="viewDashboard" class="site-view">
+  <section class="hero dashboard-hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Portfolio view</div>
+      <h1>Services by <em>domain</em>, <em>tier</em> &amp; <em>impact</em></h1>
+      <p class="dashboard-intro">Tier 1 groups major hyperscaler CSPs and core platforms; Tier 2 established SaaS; Tier 3 emerging vendors. Click any tier, domain, or impact count to open the marketplace with that filter applied. Impact levels shown: IL2, IL4, IL5, IL6.</p>
+    </div>
+  </section>
+  <div class="dashboard-wrap">
+    <div class="dash-table-wrap" id="dashboardTableMount"></div>
+  </div>
 </div>
 
 <!-- MODAL -->
@@ -567,36 +762,50 @@
 </div>
 
 <script>
+const IMPACT_LEVELS = ['IL2', 'IL4', 'IL5', 'IL6'];
+const TIER_LABELS = {
+  1: { title: 'Tier 1', sub: 'Hyperscalers & core CSPs' },
+  2: { title: 'Tier 2', sub: 'Established SaaS' },
+  3: { title: 'Tier 3', sub: 'Emerging / SMB-class' },
+};
+
 const products = [
-  { id:1, name:"Wiz Cloud Security", vendor:"Wiz, Inc.", emoji:"🛡️", status:"authorized", csp:"aws", impact:"high", category:"Cybersecurity & Risk Management", tags:["CSPM","Vulnerability","Cloud Security"], desc:"Agentless cloud security platform that provides full-stack visibility across AWS, Azure, and GCP. Enables risk prioritization, misconfigurations detection, and compliance reporting at scale.", contractId:"CBM-2024-0012", ataDate:"2024-03-15", reuses:4 },
-  { id:2, name:"Microsoft 365 GovCloud", vendor:"Microsoft Corporation", emoji:"🏢", status:"authorized", csp:"azure", impact:"high", category:"Collaboration", tags:["Email","Productivity","Collaboration"], desc:"Complete productivity and collaboration suite including Teams, Exchange, SharePoint, and Office apps deployed in Microsoft's dedicated government cloud environment.", contractId:"CBM-2023-0045", ataDate:"2023-01-20", reuses:12 },
-  { id:3, name:"Salesforce Government Cloud", vendor:"Salesforce, Inc.", emoji:"☁️", status:"authorized", csp:"aws", impact:"moderate", category:"CRM", tags:["CRM","Sales","Customer Service"], desc:"Enterprise CRM and low-code platform purpose-built for government agencies. Includes pre-built compliance controls, field service, and analytics modules.", contractId:"CBM-2024-0031", ataDate:"2024-05-01", reuses:7 },
-  { id:4, name:"ServiceNow Federal", vendor:"ServiceNow", emoji:"⚙️", status:"authorized", csp:"aws", impact:"moderate", category:"Operations Management", tags:["ITSM","Workflow","Automation"], desc:"IT service management and digital workflow platform. Automates common enterprise services including HR, IT, procurement, and facilities management.", contractId:"CBM-2022-0009", ataDate:"2022-09-12", reuses:9 },
-  { id:5, name:"Databricks GovCloud", vendor:"Databricks, Inc.", emoji:"📊", status:"authorized", csp:"azure", impact:"high", category:"Data Management", tags:["Analytics","ML","Data Lakehouse"], desc:"Unified analytics platform combining data engineering, ML, and business intelligence. Supports large-scale ETL pipelines and collaborative data science workflows.", contractId:"CBM-2024-0055", ataDate:"2024-08-30", reuses:3 },
-  { id:6, name:"Crowdstrike Falcon Gov", vendor:"CrowdStrike Holdings", emoji:"🦅", status:"authorized", csp:"aws", impact:"high", category:"Cybersecurity & Risk Management", tags:["EDR","Threat Detection","XDR"], desc:"AI-native cybersecurity platform offering endpoint detection, threat intelligence, and identity protection. Purpose-built for government's zero-trust requirements.", contractId:"CBM-2023-0067", ataDate:"2023-11-04", reuses:6 },
-  { id:7, name:"Zoom for Government", vendor:"Zoom Video Communications", emoji:"📹", status:"authorized", csp:"aws", impact:"moderate", category:"Communication", tags:["Video","Meetings","Webinars"], desc:"FedRAMP-authorized video conferencing and team chat platform. Includes end-to-end encryption, meeting recordings in GovCloud storage, and SSO integration.", contractId:"CBM-2022-0033", ataDate:"2022-04-18", reuses:15 },
-  { id:8, name:"Tableau CRM for Gov", vendor:"Salesforce / Tableau", emoji:"📈", status:"authorized", csp:"aws", impact:"moderate", category:"Analytics", tags:["BI","Dashboards","Data Visualization"], desc:"Self-service analytics and business intelligence platform. Enables agencies to build interactive dashboards, share insights, and connect to data across cloud and on-prem sources.", contractId:"CBM-2023-0078", ataDate:"2023-07-22", reuses:5 },
-  { id:9, name:"GitHub Enterprise Cloud Gov", vendor:"GitHub / Microsoft", emoji:"🐙", status:"authorized", csp:"azure", impact:"moderate", category:"Development Tools", tags:["DevOps","Source Control","CI/CD"], desc:"Cloud-hosted enterprise Git platform with enhanced security controls, secret scanning, dependency review, and SAML-based SSO for agency teams.", contractId:"CBM-2024-0019", ataDate:"2024-02-14", reuses:8 },
-  { id:10, name:"Splunk GovCloud SIEM", vendor:"Splunk Inc.", emoji:"🔎", status:"authorized", csp:"aws", impact:"high", category:"Cybersecurity & Risk Management", tags:["SIEM","Log Management","Observability"], desc:"Machine data analytics platform for threat detection, compliance reporting, and IT operations. Pre-configured with federal compliance content packs for NIST 800-53.", contractId:"CBM-2022-0051", ataDate:"2022-12-01", reuses:11 },
-  { id:11, name:"Workday Government HR", vendor:"Workday, Inc.", emoji:"👥", status:"in-process", csp:"aws", impact:"moderate", category:"Human Resources", tags:["HR","Payroll","Workforce Planning"], desc:"Enterprise cloud ERP for human capital management, finance, and planning. Delivers real-time workforce analytics and automated compliance reporting for federal HR.", contractId:"CBM-2025-0003", ataDate:"Pending", reuses:0 },
-  { id:12, name:"Box for Government", vendor:"Box, Inc.", emoji:"📦", status:"authorized", csp:"aws", impact:"moderate", category:"Storage", tags:["File Storage","Content Management","Sharing"], desc:"Cloud content management and file sharing platform with granular access controls, watermarking, and metadata-driven workflows for secure agency document management.", contractId:"CBM-2023-0021", ataDate:"2023-03-08", reuses:4 },
-  { id:13, name:"DocuSign Federal", vendor:"DocuSign, Inc.", emoji:"✍️", status:"authorized", csp:"aws", impact:"low", category:"Legal & Policy", tags:["eSignature","Document Workflow","Compliance"], desc:"Electronic signature and agreement cloud with audit trails, identity verification, and bulk sending. Supports smart forms and automated routing for high-volume signing workflows.", contractId:"CBM-2022-0017", ataDate:"2022-06-30", reuses:18 },
-  { id:14, name:"Palo Alto Prisma Cloud Gov", vendor:"Palo Alto Networks", emoji:"🔐", status:"authorized", csp:"gcp", impact:"high", category:"Cybersecurity & Risk Management", tags:["CNAPP","Container Security","Compliance"], desc:"Cloud-native application protection platform combining CSPM, workload protection, and network security. Provides code-to-cloud visibility with policy-as-code enforcement.", contractId:"CBM-2024-0041", ataDate:"2024-06-10", reuses:2 },
-  { id:15, name:"Okta for Government", vendor:"Okta, Inc.", emoji:"🔑", status:"authorized", csp:"aws", impact:"high", category:"Cybersecurity & Risk Management", tags:["IAM","SSO","MFA","Zero Trust"], desc:"Identity and access management platform enabling SSO, adaptive MFA, and lifecycle management across cloud and on-premises applications for zero-trust architectures.", contractId:"CBM-2023-0039", ataDate:"2023-06-15", reuses:14 },
-  { id:16, name:"Google Workspace for Gov", vendor:"Google LLC", emoji:"🌐", status:"authorized", csp:"gcp", impact:"moderate", category:"Collaboration", tags:["Email","Docs","Drive","Meet"], desc:"Integrated suite of cloud productivity tools including Gmail, Drive, Docs, Meet, and Looker Studio, deployed in Google's dedicated government cloud infrastructure.", contractId:"CBM-2023-0062", ataDate:"2023-09-27", reuses:10 },
-  { id:17, name:"Rapid7 InsightVM Gov", vendor:"Rapid7, Inc.", emoji:"🩻", status:"in-process", csp:"aws", impact:"moderate", category:"Cybersecurity & Risk Management", tags:["Vulnerability Mgmt","Scanning","Risk Scoring"], desc:"Vulnerability management solution providing real-time asset discovery, risk scoring, and remediation guidance across hybrid cloud environments.", contractId:"CBM-2025-0011", ataDate:"Pending", reuses:0 },
-  { id:18, name:"Zendesk Federal Suite", vendor:"Zendesk, Inc.", emoji:"🎧", status:"ready", csp:"aws", impact:"moderate", category:"Customer Service", tags:["Help Desk","Ticketing","CX"], desc:"Customer service and engagement platform with omnichannel support, AI-powered automations, and in-depth reporting. Pre-configured for public-sector SLAs.", contractId:"CBM-2025-0007", ataDate:"Pending", reuses:0 },
-  { id:19, name:"Snowflake GovCloud", vendor:"Snowflake Inc.", emoji:"❄️", status:"authorized", csp:"aws", impact:"moderate", category:"Data Management", tags:["Data Warehouse","Data Sharing","Analytics"], desc:"Cloud data platform enabling secure data storage, processing, and sharing. Supports multi-cluster warehouses, time-travel queries, and cross-cloud data sharing for agencies.", contractId:"CBM-2024-0027", ataDate:"2024-04-09", reuses:6 },
-  { id:20, name:"Jira Service Management Gov", vendor:"Atlassian", emoji:"🎯", status:"in-process", csp:"aws", impact:"moderate", category:"Development Tools", tags:["ITSM","DevOps","Agile"], desc:"ITSM and DevOps platform combining service management, incident response, and development team workflows in a single cloud-hosted tool with role-based access control.", contractId:"CBM-2025-0015", ataDate:"Pending", reuses:0 },
-  { id:21, name:"Twilio Flex Gov", vendor:"Twilio Inc.", emoji:"📞", status:"ready", csp:"aws", impact:"low", category:"Communication", tags:["Contact Center","CPaaS","Messaging"], desc:"Programmable cloud contact center platform. Enables agencies to build custom omnichannel communication solutions with voice, SMS, chat, and email on a single API platform.", contractId:"CBM-2025-0002", ataDate:"Pending", reuses:0 },
-  { id:22, name:"Elastic GovCloud Search", vendor:"Elastic N.V.", emoji:"🔍", status:"authorized", csp:"azure", impact:"moderate", category:"Data Management", tags:["Search","Observability","Analytics"], desc:"Search-powered solutions for full-text search, log analytics, and application performance monitoring. Enables agencies to unify observability across multi-cloud environments.", contractId:"CBM-2024-0036", ataDate:"2024-07-18", reuses:3 },
-  { id:23, name:"Veracode Gov Application Security", vendor:"Veracode", emoji:"🧪", status:"authorized", csp:"aws", impact:"moderate", category:"Development Tools", tags:["AppSec","SAST","DAST","SCA"], desc:"Application security testing platform providing static, dynamic, and software composition analysis. Integrates natively with CI/CD pipelines to enforce secure coding standards.", contractId:"CBM-2024-0048", ataDate:"2024-09-05", reuses:1 },
-  { id:24, name:"AWS GovCloud IaaS", vendor:"Amazon Web Services", emoji:"🟠", status:"authorized", csp:"aws", impact:"high", category:"IaaS", tags:["Compute","Storage","Networking","IaaS"], desc:"Isolated AWS region designed to host sensitive Controlled Unclassified Information (CUI) and regulated workloads. Includes EC2, S3, VPC, RDS, and 90+ additional services.", contractId:"CBM-2021-0001", ataDate:"2021-08-01", reuses:22 },
+  { id:1, name:"Wiz Cloud Security", vendor:"Wiz, Inc.", emoji:"🛡️", status:"authorized", csp:"aws", tier:2, domain:"Cybersecurity", impactLevel:"IL5", category:"Cybersecurity & Risk Management", tags:["CSPM","Vulnerability","Cloud Security"], desc:"Agentless cloud security platform that provides full-stack visibility across AWS, Azure, and GCP. Enables risk prioritization, misconfigurations detection, and compliance reporting at scale.", contractId:"CBM-2024-0012", ataDate:"2024-03-15", reuses:4 },
+  { id:2, name:"Microsoft 365 GovCloud", vendor:"Microsoft Corporation", emoji:"🏢", status:"authorized", csp:"azure", tier:1, domain:"Collaboration", impactLevel:"IL6", category:"Collaboration", tags:["Email","Productivity","Collaboration"], desc:"Complete productivity and collaboration suite including Teams, Exchange, SharePoint, and Office apps deployed in Microsoft's dedicated government cloud environment.", contractId:"CBM-2023-0045", ataDate:"2023-01-20", reuses:12 },
+  { id:3, name:"Salesforce Government Cloud", vendor:"Salesforce, Inc.", emoji:"☁️", status:"authorized", csp:"aws", tier:2, domain:"SaaS", impactLevel:"IL5", category:"CRM", tags:["CRM","Sales","Customer Service"], desc:"Enterprise CRM and low-code platform purpose-built for government agencies. Includes pre-built compliance controls, field service, and analytics modules.", contractId:"CBM-2024-0031", ataDate:"2024-05-01", reuses:7 },
+  { id:4, name:"ServiceNow Federal", vendor:"ServiceNow", emoji:"⚙️", status:"authorized", csp:"aws", tier:2, domain:"Operations Management", impactLevel:"IL4", category:"Operations Management", tags:["ITSM","Workflow","Automation"], desc:"IT service management and digital workflow platform. Automates common enterprise services including HR, IT, procurement, and facilities management.", contractId:"CBM-2022-0009", ataDate:"2022-09-12", reuses:9 },
+  { id:5, name:"Databricks GovCloud", vendor:"Databricks, Inc.", emoji:"📊", status:"authorized", csp:"azure", tier:2, domain:"AI/ML", impactLevel:"IL6", category:"Data Management", tags:["Analytics","ML","Data Lakehouse"], desc:"Unified analytics platform combining data engineering, ML, and business intelligence. Supports large-scale ETL pipelines and collaborative data science workflows.", contractId:"CBM-2024-0055", ataDate:"2024-08-30", reuses:3 },
+  { id:6, name:"Crowdstrike Falcon Gov", vendor:"CrowdStrike Holdings", emoji:"🦅", status:"authorized", csp:"aws", tier:2, domain:"Cybersecurity", impactLevel:"IL6", category:"Cybersecurity & Risk Management", tags:["EDR","Threat Detection","XDR"], desc:"AI-native cybersecurity platform offering endpoint detection, threat intelligence, and identity protection. Purpose-built for government's zero-trust requirements.", contractId:"CBM-2023-0067", ataDate:"2023-11-04", reuses:6 },
+  { id:7, name:"Zoom for Government", vendor:"Zoom Video Communications", emoji:"📹", status:"authorized", csp:"aws", tier:2, domain:"Communication", impactLevel:"IL4", category:"Communication", tags:["Video","Meetings","Webinars"], desc:"FedRAMP-authorized video conferencing and team chat platform. Includes end-to-end encryption, meeting recordings in GovCloud storage, and SSO integration.", contractId:"CBM-2022-0033", ataDate:"2022-04-18", reuses:15 },
+  { id:8, name:"Tableau CRM for Gov", vendor:"Salesforce / Tableau", emoji:"📈", status:"authorized", csp:"aws", tier:2, domain:"Analytics", impactLevel:"IL4", category:"Analytics", tags:["BI","Dashboards","Data Visualization"], desc:"Self-service analytics and business intelligence platform. Enables agencies to build interactive dashboards, share insights, and connect to data across cloud and on-prem sources.", contractId:"CBM-2023-0078", ataDate:"2023-07-22", reuses:5 },
+  { id:9, name:"GitHub Enterprise Cloud Gov", vendor:"GitHub / Microsoft", emoji:"🐙", status:"authorized", csp:"azure", tier:2, domain:"Development Tools", impactLevel:"IL4", category:"Development Tools", tags:["DevOps","Source Control","CI/CD"], desc:"Cloud-hosted enterprise Git platform with enhanced security controls, secret scanning, dependency review, and SAML-based SSO for agency teams.", contractId:"CBM-2024-0019", ataDate:"2024-02-14", reuses:8 },
+  { id:10, name:"Splunk GovCloud SIEM", vendor:"Splunk Inc.", emoji:"🔎", status:"authorized", csp:"aws", tier:2, domain:"Cybersecurity", impactLevel:"IL5", category:"Cybersecurity & Risk Management", tags:["SIEM","Log Management","Observability"], desc:"Machine data analytics platform for threat detection, compliance reporting, and IT operations. Pre-configured with federal compliance content packs for NIST 800-53.", contractId:"CBM-2022-0051", ataDate:"2022-12-01", reuses:11 },
+  { id:11, name:"Workday Government HR", vendor:"Workday, Inc.", emoji:"👥", status:"in-process", csp:"aws", tier:2, domain:"SaaS", impactLevel:"IL4", category:"Human Resources", tags:["HR","Payroll","Workforce Planning"], desc:"Enterprise cloud ERP for human capital management, finance, and planning. Delivers real-time workforce analytics and automated compliance reporting for federal HR.", contractId:"CBM-2025-0003", ataDate:"Pending", reuses:0 },
+  { id:12, name:"Box for Government", vendor:"Box, Inc.", emoji:"📦", status:"authorized", csp:"aws", tier:2, domain:"Storage", impactLevel:"IL4", category:"Storage", tags:["File Storage","Content Management","Sharing"], desc:"Cloud content management and file sharing platform with granular access controls, watermarking, and metadata-driven workflows for secure agency document management.", contractId:"CBM-2023-0021", ataDate:"2023-03-08", reuses:4 },
+  { id:13, name:"DocuSign Federal", vendor:"DocuSign, Inc.", emoji:"✍️", status:"authorized", csp:"aws", tier:2, domain:"SaaS", impactLevel:"IL2", category:"Legal & Policy", tags:["eSignature","Document Workflow","Compliance"], desc:"Electronic signature and agreement cloud with audit trails, identity verification, and bulk sending. Supports smart forms and automated routing for high-volume signing workflows.", contractId:"CBM-2022-0017", ataDate:"2022-06-30", reuses:18 },
+  { id:14, name:"Palo Alto Prisma Cloud Gov", vendor:"Palo Alto Networks", emoji:"🔐", status:"authorized", csp:"gcp", tier:2, domain:"Cybersecurity", impactLevel:"IL6", category:"Cybersecurity & Risk Management", tags:["CNAPP","Container Security","Compliance"], desc:"Cloud-native application protection platform combining CSPM, workload protection, and network security. Provides code-to-cloud visibility with policy-as-code enforcement.", contractId:"CBM-2024-0041", ataDate:"2024-06-10", reuses:2 },
+  { id:15, name:"Okta for Government", vendor:"Okta, Inc.", emoji:"🔑", status:"authorized", csp:"aws", tier:2, domain:"Cybersecurity", impactLevel:"IL6", category:"Cybersecurity & Risk Management", tags:["IAM","SSO","MFA","Zero Trust"], desc:"Identity and access management platform enabling SSO, adaptive MFA, and lifecycle management across cloud and on-premises applications for zero-trust architectures.", contractId:"CBM-2023-0039", ataDate:"2023-06-15", reuses:14 },
+  { id:16, name:"Google Workspace for Gov", vendor:"Google LLC", emoji:"🌐", status:"authorized", csp:"gcp", tier:1, domain:"Collaboration", impactLevel:"IL5", category:"Collaboration", tags:["Email","Docs","Drive","Meet"], desc:"Integrated suite of cloud productivity tools including Gmail, Drive, Docs, Meet, and Looker Studio, deployed in Google's dedicated government cloud infrastructure.", contractId:"CBM-2023-0062", ataDate:"2023-09-27", reuses:10 },
+  { id:17, name:"Rapid7 InsightVM Gov", vendor:"Rapid7, Inc.", emoji:"🩻", status:"in-process", csp:"aws", tier:3, domain:"Cybersecurity", impactLevel:"IL4", category:"Cybersecurity & Risk Management", tags:["Vulnerability Mgmt","Scanning","Risk Scoring"], desc:"Vulnerability management solution providing real-time asset discovery, risk scoring, and remediation guidance across hybrid cloud environments.", contractId:"CBM-2025-0011", ataDate:"Pending", reuses:0 },
+  { id:18, name:"Zendesk Federal Suite", vendor:"Zendesk, Inc.", emoji:"🎧", status:"ready", csp:"aws", tier:3, domain:"SaaS", impactLevel:"IL2", category:"Customer Service", tags:["Help Desk","Ticketing","CX"], desc:"Customer service and engagement platform with omnichannel support, AI-powered automations, and in-depth reporting. Pre-configured for public-sector SLAs.", contractId:"CBM-2025-0007", ataDate:"Pending", reuses:0 },
+  { id:19, name:"Snowflake GovCloud", vendor:"Snowflake Inc.", emoji:"❄️", status:"authorized", csp:"aws", tier:2, domain:"Data Management", impactLevel:"IL5", category:"Data Management", tags:["Data Warehouse","Data Sharing","Analytics"], desc:"Cloud data platform enabling secure data storage, processing, and sharing. Supports multi-cluster warehouses, time-travel queries, and cross-cloud data sharing for agencies.", contractId:"CBM-2024-0027", ataDate:"2024-04-09", reuses:6 },
+  { id:20, name:"Jira Service Management Gov", vendor:"Atlassian", emoji:"🎯", status:"in-process", csp:"aws", tier:2, domain:"Development Tools", impactLevel:"IL4", category:"Development Tools", tags:["ITSM","DevOps","Agile"], desc:"ITSM and DevOps platform combining service management, incident response, and development team workflows in a single cloud-hosted tool with role-based access control.", contractId:"CBM-2025-0015", ataDate:"Pending", reuses:0 },
+  { id:21, name:"Twilio Flex Gov", vendor:"Twilio Inc.", emoji:"📞", status:"ready", csp:"aws", tier:3, domain:"Communication", impactLevel:"IL2", category:"Communication", tags:["Contact Center","CPaaS","Messaging"], desc:"Programmable cloud contact center platform. Enables agencies to build custom omnichannel communication solutions with voice, SMS, chat, and email on a single API platform.", contractId:"CBM-2025-0002", ataDate:"Pending", reuses:0 },
+  { id:22, name:"Elastic GovCloud Search", vendor:"Elastic N.V.", emoji:"🔍", status:"authorized", csp:"azure", tier:2, domain:"Data Management", impactLevel:"IL4", category:"Data Management", tags:["Search","Observability","Analytics"], desc:"Search-powered solutions for full-text search, log analytics, and application performance monitoring. Enables agencies to unify observability across multi-cloud environments.", contractId:"CBM-2024-0036", ataDate:"2024-07-18", reuses:3 },
+  { id:23, name:"Veracode Gov Application Security", vendor:"Veracode", emoji:"🧪", status:"authorized", csp:"aws", tier:2, domain:"Development Tools", impactLevel:"IL4", category:"Development Tools", tags:["AppSec","SAST","DAST","SCA"], desc:"Application security testing platform providing static, dynamic, and software composition analysis. Integrates natively with CI/CD pipelines to enforce secure coding standards.", contractId:"CBM-2024-0048", ataDate:"2024-09-05", reuses:1 },
+  { id:24, name:"AWS GovCloud IaaS", vendor:"Amazon Web Services", emoji:"🟠", status:"authorized", csp:"aws", tier:1, domain:"IaaS", impactLevel:"IL6", category:"IaaS", tags:["Compute","Storage","Networking","IaaS"], desc:"Isolated AWS region designed to host sensitive Controlled Unclassified Information (CUI) and regulated workloads. Includes EC2, S3, VPC, RDS, and 90+ additional services.", contractId:"CBM-2021-0001", ataDate:"2021-08-01", reuses:22 },
 ];
 
 let activeFilter = 'all';
 let searchQuery = '';
 let sortBy = 'name';
+let dashboardFilters = null;
+let currentRoute = 'marketplace';
+
+function uniqueDomains() {
+  const set = new Set(products.map(p => p.domain));
+  return [...set].sort((a, b) => a.localeCompare(b));
+}
 
 function getStatusClass(status) {
   if (status === 'authorized') return 'status-authorized';
@@ -618,17 +827,27 @@ function getCspLabel(csp) {
   if (csp === 'azure') return '🔵 Azure';
   return '🟡 GCP';
 }
-function getImpactClass(impact) {
-  if (impact === 'high') return 'impact-high';
-  if (impact === 'moderate') return 'impact-moderate';
-  return 'impact-low';
+function getImpactClass(il) {
+  if (il === 'IL2') return 'impact-il2';
+  if (il === 'IL4') return 'impact-il4';
+  if (il === 'IL5') return 'impact-il5';
+  return 'impact-il6';
+}
+
+function countCell(domain, tier, il) {
+  return products.filter(p => p.domain === domain && p.tier === tier && p.impactLevel === il).length;
 }
 
 function filterProducts() {
   let filtered = [...products];
+  if (dashboardFilters) {
+    if (dashboardFilters.tier != null) filtered = filtered.filter(p => p.tier === dashboardFilters.tier);
+    if (dashboardFilters.domain) filtered = filtered.filter(p => p.domain === dashboardFilters.domain);
+    if (dashboardFilters.impactLevel) filtered = filtered.filter(p => p.impactLevel === dashboardFilters.impactLevel);
+  }
   if (activeFilter !== 'all') {
     filtered = filtered.filter(p =>
-      p.status === activeFilter || p.csp === activeFilter || p.impact === activeFilter
+      p.status === activeFilter || p.csp === activeFilter || p.impactLevel === activeFilter
     );
   }
   if (searchQuery) {
@@ -637,29 +856,130 @@ function filterProducts() {
       p.name.toLowerCase().includes(q) ||
       p.vendor.toLowerCase().includes(q) ||
       p.category.toLowerCase().includes(q) ||
+      p.domain.toLowerCase().includes(q) ||
+      p.impactLevel.toLowerCase().includes(q) ||
       p.tags.some(t => t.toLowerCase().includes(q))
     );
   }
-  if (sortBy === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
+  if (sortBy === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
   else if (sortBy === 'impact') {
-    const order = {high:0, moderate:1, low:2};
-    filtered.sort((a,b) => order[a.impact] - order[b.impact]);
-  } else if (sortBy === 'csp') filtered.sort((a,b) => a.csp.localeCompare(b.csp));
+    const order = { IL2: 0, IL4: 1, IL5: 2, IL6: 3 };
+    filtered.sort((a, b) => order[a.impactLevel] - order[b.impactLevel]);
+  } else if (sortBy === 'csp') filtered.sort((a, b) => a.csp.localeCompare(b.csp));
   return filtered;
 }
 
+function updateDrillBanner() {
+  const banner = document.getElementById('drillBanner');
+  const text = document.getElementById('drillBannerText');
+  if (!dashboardFilters || currentRoute !== 'marketplace') {
+    banner.classList.remove('is-visible');
+    return;
+  }
+  const parts = [];
+  if (dashboardFilters.tier != null) parts.push(`<strong>Tier ${dashboardFilters.tier}</strong>`);
+  if (dashboardFilters.domain) parts.push(`<strong>${dashboardFilters.domain}</strong>`);
+  if (dashboardFilters.impactLevel) parts.push(`<strong>${dashboardFilters.impactLevel}</strong>`);
+  text.innerHTML = 'Filtered from dashboard: ' + parts.join(' · ');
+  banner.classList.add('is-visible');
+}
+
+function clearDashboardFilters() {
+  dashboardFilters = null;
+  updateDrillBanner();
+  renderGrid();
+}
+
+function drillFromDashboard(opts) {
+  dashboardFilters = {
+    tier: opts.tier !== undefined ? opts.tier : null,
+    domain: opts.domain || null,
+    impactLevel: opts.impactLevel || null,
+  };
+  if (dashboardFilters.tier == null && !dashboardFilters.domain && !dashboardFilters.impactLevel) {
+    dashboardFilters = null;
+  }
+  location.hash = '#marketplace';
+}
+
+function setRoute(route) {
+  currentRoute = route;
+  const mp = document.getElementById('viewMarketplace');
+  const dash = document.getElementById('viewDashboard');
+  mp.classList.toggle('is-active', route === 'marketplace');
+  dash.classList.toggle('is-active', route === 'dashboard');
+  document.querySelectorAll('.nav-route').forEach(a => {
+    a.classList.toggle('active', a.dataset.route === route);
+  });
+  if (route === 'dashboard') {
+    document.body.style.overflow = '';
+    renderDashboard();
+  } else {
+    updateDrillBanner();
+    renderGrid();
+  }
+}
+
+function syncHash() {
+  const h = (location.hash || '#marketplace').replace(/^#/, '');
+  if (h === 'dashboard') setRoute('dashboard');
+  else setRoute('marketplace');
+}
+
 function updateCounts() {
-  const counts = { all: products.length, authorized:0, 'in-process':0, ready:0, aws:0, azure:0, gcp:0, high:0, moderate:0, low:0 };
+  const counts = { all: products.length, authorized: 0, 'in-process': 0, ready: 0, aws: 0, azure: 0, gcp: 0 };
+  IMPACT_LEVELS.forEach(il => { counts[il] = 0; });
   products.forEach(p => {
     counts[p.status]++;
     counts[p.csp]++;
-    counts[p.impact]++;
+    counts[p.impactLevel]++;
   });
   Object.keys(counts).forEach(k => {
     const el = document.getElementById('count-' + k);
     if (el) el.textContent = counts[k];
   });
   document.getElementById('total-count').textContent = products.length;
+}
+
+function renderDashboard() {
+  const domains = uniqueDomains();
+  const mount = document.getElementById('dashboardTableMount');
+  const tierCols = [1, 2, 3];
+  let thead = `<thead><tr><th class="dash-th-domain">Domain</th>`;
+  tierCols.forEach(t => {
+    const L = TIER_LABELS[t];
+    thead += `<th class="dash-th-tier"><button type="button" class="dash-tier-btn" data-dash-tier="${t}">${L.title}<span class="dash-tier-sub">${L.sub}</span></button></th>`;
+  });
+  thead += '</tr></thead>';
+  let tbody = '<tbody>';
+  domains.forEach(d => {
+    tbody += `<tr><th scope="row" class="dash-row-label"><button type="button" class="dash-domain-btn" data-dash-domain="${d.replace(/"/g, '&quot;')}">${d}</button></th>`;
+    tierCols.forEach(t => {
+      tbody += '<td><div class="dash-cell">';
+      IMPACT_LEVELS.forEach(il => {
+        const n = countCell(d, t, il);
+        const dis = n === 0;
+        tbody += `<button type="button" class="dash-il-btn ${getImpactClass(il)}" data-dash-domain="${d.replace(/"/g, '&quot;')}" data-dash-tier="${t}" data-dash-il="${il}" ${dis ? 'disabled' : ''}>${il}<span class="dash-il-count">${n}</span></button>`;
+      });
+      tbody += '</div></td>';
+    });
+    tbody += '</tr>';
+  });
+  tbody += '</tbody>';
+  mount.innerHTML = `<table class="dash-table">${thead}${tbody}</table>`;
+  mount.querySelectorAll('.dash-tier-btn').forEach(btn => {
+    btn.addEventListener('click', () => drillFromDashboard({ tier: parseInt(btn.dataset.dashTier, 10) }));
+  });
+  mount.querySelectorAll('.dash-domain-btn').forEach(btn => {
+    btn.addEventListener('click', () => drillFromDashboard({ domain: btn.dataset.dashDomain }));
+  });
+  mount.querySelectorAll('.dash-il-btn:not([disabled])').forEach(btn => {
+    btn.addEventListener('click', () => drillFromDashboard({
+      tier: parseInt(btn.dataset.dashTier, 10),
+      domain: btn.dataset.dashDomain,
+      impactLevel: btn.dataset.dashIl,
+    }));
+  });
 }
 
 function renderGrid() {
@@ -684,7 +1004,8 @@ function renderGrid() {
       <div class="card-tags">${p.tags.slice(0,3).map(t => `<span class="tag">${t}</span>`).join('')}</div>
       <div class="card-footer">
         <div class="card-meta">
-          <div class="meta-item"><span class="impact-chip ${getImpactClass(p.impact)}">${p.impact.charAt(0).toUpperCase()+p.impact.slice(1)}</span></div>
+          <div class="meta-item"><span class="impact-chip ${getImpactClass(p.impactLevel)}">${p.impactLevel}</span></div>
+          <div class="meta-item">Tier <strong>${p.tier}</strong></div>
           ${p.reuses > 0 ? `<div class="meta-item"><strong>${p.reuses}</strong> reuses</div>` : ''}
         </div>
         <button class="btn-request" onclick="event.stopPropagation(); openModal(${p.id})">Details →</button>
@@ -706,7 +1027,9 @@ function openModal(id) {
   document.getElementById('modalDesc').textContent = p.desc;
   document.getElementById('modalDetails').innerHTML = `
     <div class="detail-item"><div class="detail-label">Contract ID</div><div class="detail-val">${p.contractId}</div></div>
-    <div class="detail-item"><div class="detail-label">Impact Level</div><div class="detail-val"><span class="impact-chip ${getImpactClass(p.impact)}">${p.impact.charAt(0).toUpperCase()+p.impact.slice(1)}</span></div></div>
+    <div class="detail-item"><div class="detail-label">Impact Level</div><div class="detail-val"><span class="impact-chip ${getImpactClass(p.impactLevel)}">${p.impactLevel}</span></div></div>
+    <div class="detail-item"><div class="detail-label">Tier</div><div class="detail-val">Tier ${p.tier}</div></div>
+    <div class="detail-item"><div class="detail-label">Domain</div><div class="detail-val">${p.domain}</div></div>
     <div class="detail-item"><div class="detail-label">Cloud Provider</div><div class="detail-val">${getCspLabel(p.csp)}</div></div>
     <div class="detail-item"><div class="detail-label">Auth Date</div><div class="detail-val">${p.ataDate}</div></div>
     <div class="detail-item"><div class="detail-label">Service Category</div><div class="detail-val">${p.category}</div></div>
@@ -723,12 +1046,13 @@ function closeModal(e) {
   document.body.style.overflow = '';
 }
 
-// Filter pills + sidebar
 document.querySelectorAll('.pill, .sidebar-item').forEach(el => {
   el.addEventListener('click', () => {
     activeFilter = el.dataset.filter || 'all';
+    dashboardFilters = null;
     document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p.dataset.filter === activeFilter));
     document.querySelectorAll('.sidebar-item').forEach(s => s.classList.toggle('active', s.dataset.filter === activeFilter));
+    updateDrillBanner();
     renderGrid();
   });
 });
@@ -743,11 +1067,33 @@ document.getElementById('sortSelect').addEventListener('change', e => {
   renderGrid();
 });
 
-// ESC to close modal
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }});
+document.getElementById('drillBannerClear').addEventListener('click', clearDashboardFilters);
+
+document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+  const href = a.getAttribute('href');
+  if (href === '#marketplace' || href === '#dashboard') {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      location.hash = href;
+    });
+  }
+});
+document.getElementById('logoLink').addEventListener('click', e => {
+  e.preventDefault();
+  location.hash = '#marketplace';
+});
+
+window.addEventListener('hashchange', syncHash);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 
 updateCounts();
-renderGrid();
+syncHash();
 </script>
 </body>
 </html>

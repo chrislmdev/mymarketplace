@@ -174,67 +174,6 @@
   }
   .result-count strong { color: var(--white); }
 
-  #viewMarketplace.is-tier1-csp-overview .controls-bar .search-wrap,
-  #viewMarketplace.is-tier1-csp-overview .controls-bar .filter-pills,
-  #viewMarketplace.is-tier1-csp-overview .controls-bar .sort-select {
-    opacity: 0.38;
-    pointer-events: none;
-  }
-  #viewMarketplace.is-tier1-csp-overview .page-body .sidebar {
-    opacity: 0.42;
-    pointer-events: none;
-  }
-
-  .tier1-csp-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    width: 100%;
-    max-width: 720px;
-  }
-  .tier1-csp-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    padding: 1rem 1.15rem;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    animation: fadeUp 0.4s ease both;
-  }
-  .tier1-csp-name {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--white);
-    letter-spacing: 0.02em;
-  }
-  .tier1-csp-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.45rem;
-    text-align: right;
-  }
-  .tier1-csp-il-label {
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--slate);
-    font-weight: 600;
-  }
-  .tier1-csp-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    justify-content: flex-end;
-  }
-  .tier1-csp-no-il {
-    color: var(--slate);
-    font-size: 0.95rem;
-  }
-
   /* ── LAYOUT ── */
   .page-body {
     max-width: 1400px; margin: 0 auto;
@@ -772,7 +711,7 @@
 </div>
 
 <!-- CONTROLS -->
-<div class="controls-bar" id="controlsBar">
+<div class="controls-bar">
   <div class="controls-inner">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
@@ -1117,34 +1056,8 @@ function getImpactClass(il) {
   return 'impact-il6';
 }
 
-function tier1ScopedProducts() {
-  if (!dashboardFilters || dashboardFilters.tier !== 1) return [];
-  return products.filter(p => {
-    if (p.tier !== 1 || !HYPERSCALER_CSPS.includes(p.csp)) return false;
-    if (dashboardFilters.domain && p.domain !== dashboardFilters.domain) return false;
-    if (dashboardFilters.impactLevel && p.impactLevel !== dashboardFilters.impactLevel) return false;
-    return true;
-  });
-}
-
-function impactLevelsForTier1Csp(csp) {
-  const order = { IL2: 0, IL4: 1, IL5: 2, IL6: 3 };
-  const ils = [...new Set(tier1ScopedProducts().filter(p => p.csp === csp).map(p => p.impactLevel))];
-  ils.sort((a, b) => order[a] - order[b]);
-  return ils;
-}
-
-function setTier1CspOverviewUi(active) {
-  const vm = document.getElementById('viewMarketplace');
-  if (vm) vm.classList.toggle('is-tier1-csp-overview', active);
-}
-
 function countCell(domain, tier, il) {
-  return products.filter(p => {
-    if (p.domain !== domain || p.tier !== tier || p.impactLevel !== il) return false;
-    if (tier === 1 && !HYPERSCALER_CSPS.includes(p.csp)) return false;
-    return true;
-  }).length;
+  return products.filter(p => p.domain === domain && p.tier === tier && p.impactLevel === il).length;
 }
 
 function filterProducts() {
@@ -1190,11 +1103,7 @@ function updateDrillBanner() {
   if (dashboardFilters.tier != null) parts.push(`<strong>Tier ${dashboardFilters.tier}</strong>`);
   if (dashboardFilters.domain) parts.push(`<strong>${dashboardFilters.domain}</strong>`);
   if (dashboardFilters.impactLevel) parts.push(`<strong>${dashboardFilters.impactLevel}</strong>`);
-  if (dashboardFilters.tier === 1) {
-    text.innerHTML = 'Tier 1 hyperscaler overview — CSPs and rated impact levels for this scope: ' + parts.join(' · ');
-  } else {
-    text.innerHTML = 'Filtered from dashboard: ' + parts.join(' · ');
-  }
+  text.innerHTML = 'Filtered from dashboard: ' + parts.join(' · ');
   banner.classList.add('is-visible');
 }
 
@@ -1299,36 +1208,7 @@ function renderDashboard() {
   });
 }
 
-function renderTier1CspOverview() {
-  const grid = document.getElementById('productGrid');
-  const empty = document.getElementById('emptyState');
-  empty.style.display = 'none';
-  document.getElementById('resultCount').innerHTML = '<strong>5</strong> hyperscaler cloud providers';
-  grid.innerHTML =
-    '<div class="tier1-csp-panel">' +
-    HYPERSCALER_CSPS.map((csp, i) => {
-      const ils = impactLevelsForTier1Csp(csp);
-      const chips = ils.length
-        ? ils.map(il => `<span class="impact-chip ${getImpactClass(il)}">${il}</span>`).join(' ')
-        : '<span class="tier1-csp-no-il">—</span>';
-      return `<div class="tier1-csp-row" style="animation-delay:${i * 0.06}s">
-      <div class="tier1-csp-name">${getCspLabel(csp)}</div>
-      <div class="tier1-csp-meta">
-        <span class="tier1-csp-il-label">Rated for</span>
-        <div class="tier1-csp-chips">${chips}</div>
-      </div>
-    </div>`;
-    }).join('') +
-    '</div>';
-}
-
 function renderGrid() {
-  const tier1Overview = dashboardFilters && dashboardFilters.tier === 1;
-  setTier1CspOverviewUi(!!tier1Overview);
-  if (tier1Overview) {
-    renderTier1CspOverview();
-    return;
-  }
   const filtered = filterProducts();
   const grid = document.getElementById('productGrid');
   const empty = document.getElementById('emptyState');

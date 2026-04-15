@@ -821,7 +821,7 @@
     <div class="hero-inner">
       <div class="hero-badge">Portfolio view</div>
       <h1>Services by <em>domain</em>, <em>tier</em> &amp; <em>impact</em></h1>
-      <p class="dashboard-intro">Tier 1 groups major hyperscaler CSPs and core platforms; Tier 2 established SaaS; Tier 3 emerging vendors. Impact levels shown: IL2, IL4, IL5, IL6.</p>
+      <p class="dashboard-intro"><strong>Tier 1</strong> is reserved for first-party offerings from the five hyperscalers only: Amazon (AWS), Microsoft (Azure), Google (GCP), Oracle (OCI), and ABC Hybrid Cloud. <strong>Tier 2</strong> is established SaaS; <strong>Tier 3</strong> is emerging vendors. Impact levels: IL2, IL4, IL5, IL6.</p>
       <p class="dashboard-interactive-hint" role="note">
         <span class="dashboard-interactive-icon" aria-hidden="true">↗</span>
         <span><strong>Interactive grid</strong> — tier headings, domain names, and each non-zero impact total are links into the marketplace (with filters applied). Impact levels are shown in a 2×2 block per cell; if more than four levels are configured, they flow three per row. Dimmed counts have no services in that slice.</span>
@@ -871,8 +871,10 @@
 <script>
 /* Dashboard lays out IL chips in 2 columns (2×2 for four levels); >4 uses 3 columns (up to 3×3). */
 const IMPACT_LEVELS = ['IL2', 'IL4', 'IL5', 'IL6'];
+/** Tier 1 catalog rows must use one of these CSP keys (five hyperscalers). */
+const HYPERSCALER_CSPS = ['aws', 'azure', 'gcp', 'oci', 'abc-hybrid'];
 const TIER_LABELS = {
-  1: { title: 'Tier 1', sub: 'Hyperscalers & core CSPs' },
+  1: { title: 'Tier 1', sub: 'AWS · Azure · GCP · OCI · ABC Hybrid' },
   2: { title: 'Tier 2', sub: 'Established SaaS' },
   3: { title: 'Tier 3', sub: 'Emerging / SMB-class' },
 };
@@ -1003,6 +1005,15 @@ const products = [
   { id:123, name:"ABC Hybrid VMware Cloud Foundation on GreenLake", vendor:"Hewlett Packard Enterprise", emoji:"📀", status:"authorized", csp:"abc-hybrid", tier:1, domain:"IaaS", impactLevel:"IL5", category:"VMware", tags:["VCF","vSphere","vSAN"], desc:"VMware Cloud Foundation stack delivered on HPE GreenLake hardware with consistent operations across core and edge sites.", contractId:"CBM-2023-0407", ataDate:"2023-09-18", reuses:4 },
   { id:124, name:"ABC Hybrid GreenLake for AI/ML", vendor:"Hewlett Packard Enterprise", emoji:"🤖", status:"ready", csp:"abc-hybrid", tier:2, domain:"AI/ML", impactLevel:"IL6", category:"AI Infrastructure", tags:["GPU","Superdome","Training"], desc:"High-density GPU and accelerated compute blocks for on-premises model training and inference with GreenLake metering.", contractId:"CBM-2025-0408", ataDate:"Pending", reuses:0 },
 ];
+
+function validateTier1HyperscalerCsps() {
+  products.forEach(p => {
+    if (p.tier === 1 && !HYPERSCALER_CSPS.includes(p.csp)) {
+      console.warn('[CloudBridge] Tier 1 requires a hyperscaler csp (aws, azure, gcp, oci, abc-hybrid):', { id: p.id, name: p.name, csp: p.csp, tier: p.tier });
+    }
+  });
+}
+validateTier1HyperscalerCsps();
 
 let activeFilter = 'all';
 let searchQuery = '';
